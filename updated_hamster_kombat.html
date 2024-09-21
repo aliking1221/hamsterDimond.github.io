@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Generator for Hamster Kombat</title>
+    <meta name="description" content="Universal key generator for Hamster Kombat, designed to make getting keys in this popular game easier. Generate up to 4 keys simultaneously and simplify your gameplay.">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <select id="languageSelect">
+                    <option value="en" selected>English</option>
+                    <option value="fa">فارسی</option>
+                </select>
+            </div>
+
+            <!-- Telegram Link -->
+            <button id="creatorChannel" class="button">
+                <a href="https://t.me/Taps_Drop" target="_blank">Telegram Channel</a>
+                <i class="fab fa-telegram"></i>
+            </button>
+
+            <h1>Hamster Kombat Key Generator</h1>
+            <label for="gameSelect" id="gameSelectLabel">Select the game to generate keys for:</label>
+            <select id="gameSelect">
+                <option value="ChainCube2048">Chain Cube 2048</option>
+                <!-- Other game options -->
+            </select>
+            
+            <label for="keyCountSelect" id="keyCountLabel">Select number of keys to generate:</label>
+            <select id="keyCountSelect">
+                <option value="1">1</option>
+                <!-- Other options -->
+            </select>
+
+            <button id="startBtn" class="button">Generate Keys</button>
+
+            <div id="progressContainer" class="progress-container hidden">
+                <div id="progressBar" class="progress-bar"></div>
+                <span id="progressText" class="progress-text">0%</span>
+            </div>
+
+            <div id="keyContainer" class="key-container hidden">
+                <h2 id="generatedKeysTitle">Generated Keys:</h2>
+                <button id="copyAllBtn" class="button hidden">Copy All Keys</button>
+                <div id="keysList" class="keys-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js.download"></script>
+
+    <!-- Language Change Script -->
+    <script>
+        const languageSelect = document.getElementById('languageSelect');
+        const elementsToTranslate = {
+            'gameSelectLabel': {
+                'en': 'Select the game to generate keys for:',
+                'fa': 'انتخاب بازی برای تولید کلید:'
+            },
+            'keyCountLabel': {
+                'en': 'Select number of keys to generate:',
+                'fa': 'تعداد کلیدهای مورد نیاز را انتخاب کنید:'
+            },
+            'startBtn': {
+                'en': 'Generate Keys',
+                'fa': 'تولید کلیدها'
+            },
+            'generatedKeysTitle': {
+                'en': 'Generated Keys:',
+                'fa': 'کلیدهای تولید شده:'
+            },
+            'copyAllBtn': {
+                'en': 'Copy All Keys',
+                'fa': 'کپی کردن تمام کلیدها'
+            }
+        };
+
+        languageSelect.addEventListener('change', (e) => {
+            const selectedLang = e.target.value;
+            for (const [key, value] of Object.entries(elementsToTranslate)) {
+                document.getElementById(key).innerText = value[selectedLang];
+            }
+        });
+
+        // Set default language to English
+        document.addEventListener('DOMContentLoaded', () => {
+            languageSelect.value = 'en';
+        });
+    </script>
+</body>
+</html>
